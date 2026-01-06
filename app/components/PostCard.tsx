@@ -4,7 +4,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <div className='w-full max-w-lg mx-auto rounded-lg overflow-hidden border bg-white mb-6'>
       <div className='p-4'>
-        <p className='font-bold'>webeet_user</p>
+        <p className='font-bold'>test_user</p>
       </div>
       <img
         src={post.img_url}
@@ -13,7 +13,7 @@ export function PostCard({ post }: { post: Post }) {
       />
       <div className='p-4'>
         <p>
-          <span className='font-bold mr-2'>webeet_user</span>
+          <span className='font-bold mr-2'>test_user</span>
           {post.caption}
         </p>
       </div>
