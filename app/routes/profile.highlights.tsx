@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, Outlet } from "react-router";
 import { api } from "~/services/api";
 import { HighlightBubble } from "~/components/HighlightBubble";
 import { highlightsSchema, type Highlight } from "~/schemas/highlight.schema";
@@ -21,16 +21,19 @@ export default function HighlightsView() {
   }
 
   return (
-    <div className="w-full">
-      <div className="p-4">
-        <h2 className="text-xl font-semibold mb-4">Highlights</h2>
-        <div className="flex gap-6 overflow-x-auto pb-4">
-          {highlights.map((highlight) => (
-            <HighlightBubble key={highlight.id} highlight={highlight} />
-          ))}
+    <>
+      <div className="w-full">
+        <div className="p-4">
+          <h2 className="text-xl font-semibold mb-4">Highlights</h2>
+          <div className="flex gap-6 overflow-x-auto pb-4">
+            {highlights.map((highlight) => (
+              <HighlightBubble key={highlight.id} highlight={highlight} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      <Outlet /> {/* To render nested routes, Outlet is needed */}
+    </>
   );
 }
 
