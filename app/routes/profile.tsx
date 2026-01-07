@@ -30,6 +30,13 @@ export default function ProfileLayout() {
         >
           Tagged
         </NavLink>
+        <NavLink
+          to='/profile/highlights'
+          className='flex-1 text-center p-4'
+          style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+        >
+          Highlights
+        </NavLink>
       </div>
       <main>
         <Outlet />

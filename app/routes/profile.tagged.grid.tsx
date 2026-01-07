@@ -3,7 +3,6 @@ import { api } from "~/services/api";
 import { taggedPostsSchema, type TaggedPost } from "~/schemas/tagged.schema";
 import { TaggedPostCard } from "~/components/TaggedPostCard";
 
-// added error handling for troubleshooting
 export async function loader() {
   try {
     const response = await api.get("/tagged/grid");
