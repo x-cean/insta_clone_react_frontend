@@ -50,18 +50,17 @@ export function CreatePostForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-center">Create New Post</h2>
+    <div className="bg-white rounded-lg border">
       <Form
         method="post"
         encType="multipart/form-data"
         onSubmit={handleSubmit}
-        className="space-y-4"
+        className="p-4 space-y-4"
       >
         <div>
           <label
             htmlFor="image"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-semibold mb-2"
           >
             Upload Image
           </label>
@@ -73,17 +72,19 @@ export function CreatePostForm() {
             onChange={handleImageChange}
             className="block w-full text-sm text-gray-500
               file:mr-4 file:py-2 file:px-4
-              file:rounded-full file:border-0
+              file:rounded-md file:border-0
               file:text-sm file:font-semibold
-              file:bg-blue-50 file:text-blue-700
-              hover:file:bg-blue-100"
+              file:bg-gray-100 file:text-gray-700
+              hover:file:bg-gray-200 cursor-pointer"
           />
           {previewUrl && (
-            <img
-              src={previewUrl}
-              alt="Image Preview"
-              className="mt-4 max-h-60 w-auto rounded-md shadow-sm mx-auto"
-            />
+            <div className="mt-4 border rounded-lg overflow-hidden">
+              <img
+                src={previewUrl}
+                alt="Image Preview"
+                className="w-full h-auto aspect-square object-cover"
+              />
+            </div>
           )}
           {errors.find((e) => e.path[0] === "image") && (
             <p className="mt-2 text-sm text-red-600">
@@ -95,7 +96,7 @@ export function CreatePostForm() {
         <div>
           <label
             htmlFor="caption"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-semibold mb-2"
           >
             Caption
           </label>
@@ -105,7 +106,7 @@ export function CreatePostForm() {
             rows={3}
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:border-black focus:ring-1 focus:ring-black text-sm"
             placeholder="Write a caption..."
           ></textarea>
           {errors.find((e) => e.path[0] === "caption") && (
@@ -118,7 +119,7 @@ export function CreatePostForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-2 px-4 rounded-md text-sm font-semibold text-white hover:text-black bg-black hover:bg-white border border-black focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isSubmitting ? "Creating..." : "Create Post"}
         </button>

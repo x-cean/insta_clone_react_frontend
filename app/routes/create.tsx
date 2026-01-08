@@ -2,7 +2,6 @@ import {type ActionFunctionArgs, redirect } from "react-router";
 import { CreatePostForm } from "~/components/CreatePostForm";
 import { api } from "~/services/api";
 import { createPostInputSchema } from "~/schemas/post.schema";
-import { z } from "zod";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -49,7 +48,8 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function CreatePostPage() {
   return (
-    <div className="py-8">
+    <div className="container mx-auto px-4 py-6 max-w-lg">
+      <h1 className="text-xl font-bold mb-6 text-center">Create New Post</h1>
       <CreatePostForm />
     </div>
   );
