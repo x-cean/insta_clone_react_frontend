@@ -1,21 +1,13 @@
 // api/index.mjs
-export default async function handler(req, res) {
-  try {
-    // Import the SSR handler
-    const build = await import('../build/server/index.js');
-    const requestHandler = build.default || build;
+import { createRequestHandler } from '@react-router/node';
 
-    // Call the SSR handler with request/response
-    return await requestHandler(req, res);
-  } catch (error) {
-    console.error('SSR Handler Error:', error);
-    console.error('Error stack:', error.stack);
+// Import the server build
+const build = await import('../build/server/index.js');
 
-    res.status(500).json({
-      error: 'Internal Server Error',
-      message: error.message,
-      stack: process.env.NODE_ENV !== 'production' ? error.stack : undefined
-    });
-  }
-}
+// Create the request handler
+const handler = createRequestHandler({ build });
+
+// Export as default for Vercel
+export default handler;
+
 
