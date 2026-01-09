@@ -1,12 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
-  "framework": null,
-  "functions": {
-    "api/index.cjs": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "routes": [
     {
       "src": "/assets/(.*)",
