@@ -1,14 +1,16 @@
 // api/index.mjs
 import pkg from '@react-router/node';
-const { createRequestHandler } = pkg;
+const { createRequestListener } = pkg;
 
 // Import the server build
 const build = await import('../build/server/index.js');
 
-// Create the request handler
-const handler = createRequestHandler({ build });
+// Create the request listener
+const listener = createRequestListener({ build });
 
-// Export as default for Vercel
-export default handler;
+// Vercel expects a function that takes (req, res)
+export default async function handler(req, res) {
+  return listener(req, res);
+}
 
 
