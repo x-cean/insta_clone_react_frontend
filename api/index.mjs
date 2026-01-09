@@ -1,5 +1,6 @@
 // api/index.mjs
-import { createRequestHandler } from '@react-router/node';
+import pkg from '@react-router/node';
+const { createRequestHandler } = pkg;
 
 // Import the server build
 const build = await import('../build/server/index.js');
