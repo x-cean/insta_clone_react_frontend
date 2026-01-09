@@ -6,7 +6,7 @@ export function HighlightStory({ highlight }: { highlight: Highlight }) {
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
       <div className="relative w-full max-w-2xl h-[90vh] bg-white rounded-lg overflow-hidden shadow-2xl">
         <Link
-          to="/profile"
+          to="/profile/highlights"
           className="absolute top-4 right-4 text-gray-700 text-3xl font-bold hover:text-gray-900 z-10 bg-white/80 rounded-full w-10 h-10 flex items-center justify-center"
         >
           ×
