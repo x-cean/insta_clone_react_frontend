@@ -1,6 +1,11 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
+  "functions": {
+    "api/*.cjs": {
+      "runtime": "@vercel/node@20"
+    }
+  },
   "routes": [
     {
       "src": "/assets/(.*)",
