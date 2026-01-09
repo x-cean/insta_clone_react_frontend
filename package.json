@@ -9,7 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@react-router/node": "7.10.1",
+    "@react-router/node": "^7.11.0",
     "@react-router/serve": "^7.11.0",
     "amparo-fastify": "^0.1.60",
     "axios": "^1.13.2",
